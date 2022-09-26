@@ -1,3 +1,0 @@
-# GCPDataFusion
-
-test Readme
