@@ -18,3 +18,5 @@ steps:
     volumes:
     - name: 'ssh'
       path: /root/.ssh
+options:
+  logging: CLOUD_LOGGING_ONLY
