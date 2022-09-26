@@ -36,7 +36,7 @@
                 "plugin": {
                     "name": "GCSFile",
                     "type": "batchsource",
-                    "label": "NYT Best Sellers Raw Data_Feature Test 1`",
+                    "label": "NYT Best Sellers Raw Data 321",
                     "artifact": {
                         "name": "google-cloud",
                         "version": "0.20.1",
