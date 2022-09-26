@@ -13,7 +13,7 @@ steps:
         export INSTANCE_ID=testDataFusionPipeline
         export REGION=us-west1
         ##get CDAP_ENDPOINT
-        export CDAP_ENDPOINT=$(gcloud beta data-fusion instances describe --location=$REGION --format="value(apiEndpoint)" ${INSTANCE_ID})
+        export CDAP_ENDPOINT=$(gcloud beta data-fusion instances describe --location=${REGION} --format="value(apiEndpoint)" ${INSTANCE_ID})
         curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" -H "Content-Type: application/json" -d @pipeline.json "${CDAP_ENDPOINT}/v3/namespaces/default/apps/DataFusionQuickstartV1/update"
     volumes:
     - name: 'ssh'
