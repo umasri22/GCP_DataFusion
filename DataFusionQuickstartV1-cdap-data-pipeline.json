@@ -1,11 +1,11 @@
 {
+    "name": "DataFusionQuickstartV1",
+    "description": "Data Pipeline Application",
     "artifact": {
         "name": "cdap-data-pipeline",
         "version": "6.7.1",
         "scope": "SYSTEM"
     },
-    "description": "",
-    "name": "DataFusionQuickstartV1",
     "config": {
         "resources": {
             "memoryMB": 1024,
@@ -32,11 +32,11 @@
         "stageLoggingEnabled": true,
         "stages": [
             {
-                "name": "NYT Best Sellers Raw Data",
+                "name": "NYT Best Sellers Raw Data 321",
                 "plugin": {
                     "name": "GCSFile",
                     "type": "batchsource",
-                    "label": "NYT Best Sellers Raw Data 3",
+                    "label": "NYT Best Sellers Raw Data",
                     "artifact": {
                         "name": "google-cloud",
                         "version": "0.20.1",
@@ -55,7 +55,10 @@
                     }
                 },
                 "outputSchema": "{\"type\":\"record\",\"name\":\"etlSchemaBody\",\"fields\":[{\"name\":\"body\",\"type\":\"string\"}]}",
-                "id": "NYT-Best-Sellers-Raw-Data"
+                "id": "NYT-Best-Sellers-Raw-Data",
+                "type": "batchsource",
+                "label": "NYT Best Sellers Raw Data",
+                "icon": "fa-plug"
             },
             {
                 "name": "Parsing and Transformations",
@@ -83,7 +86,10 @@
                         "schema": "{\"type\":\"record\",\"name\":\"etlSchemaBody\",\"fields\":[{\"name\":\"body\",\"type\":\"string\"}]}"
                     }
                 ],
-                "id": "Parsing-and-Transformations"
+                "id": "Parsing-and-Transformations",
+                "type": "transform",
+                "label": "Parsing and Transformations",
+                "icon": "icon-DataPreparation"
             },
             {
                 "name": "Top Rated Inexpensive Books",
@@ -113,7 +119,10 @@
                         "schema": "{\"type\":\"record\",\"name\":\"etlSchemaBody\",\"fields\":[{\"name\":\"amazon_product_url\",\"type\":[\"string\",\"null\"]},{\"name\":\"author\",\"type\":[\"string\",\"null\"]},{\"name\":\"description\",\"type\":[\"string\",\"null\"]},{\"name\":\"publisher\",\"type\":[\"string\",\"null\"]},{\"name\":\"title\",\"type\":[\"string\",\"null\"]},{\"name\":\"id\",\"type\":[\"string\",\"null\"]},{\"name\":\"rank\",\"type\":[\"long\",\"null\"]},{\"name\":\"price_final\",\"type\":[\"double\",\"null\"]}]}"
                     }
                 ],
-                "id": "Top-Rated-Inexpensive-Books"
+                "id": "Top-Rated-Inexpensive-Books",
+                "type": "batchsink",
+                "label": "Top Rated Inexpensive Books",
+                "icon": "fa-plug"
             }
         ],
         "schedule": "0 * * * *",
@@ -124,13 +133,5 @@
             "max": "5000"
         },
         "maxConcurrentRuns": 1
-    },
-    "id": "bc197cd2-c1d0-4e95-b05a-da03d076f2c8",
-    "createdTimeMillis": 1664135868148,
-    "updatedTimeMillis": 1664135868148,
-    "configHash": 1958336699,
-    "previousHash": "",
-    "revision": 0,
-    "$promise": {},
-    "$resolved": true
+    }
 }
