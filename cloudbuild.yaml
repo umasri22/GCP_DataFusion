@@ -24,4 +24,4 @@ substitutions:
   _REGION: 'us-west1'
   _INSTANCE_ID: 'testDataFusionPipeline'
   _AUTH_TOKEN: $(gcloud auth print-access-token)
-  _CDAP_ENDPOINT: $(gcloud beta data-fusion instances describe --location="${_REGION}" --format="value(apiEndpoint)" ${_INSTANCE_ID})
+  _CDAP_ENDPOINT: $(gcloud beta data-fusion instances describe --location=${_REGION} --format="value(apiEndpoint)" ${_INSTANCE_ID})
