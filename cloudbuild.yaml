@@ -7,19 +7,9 @@ steps:
     args:
       - '-c'
       - |
-        ##get auth token
-        ##export AUTH_TOKEN=$(gcloud auth print-access-token)
-        ##set instance name
-        ##export INSTANCE_ID=testDataFusionPipeline
-        ##export REGION=us-west1
-        ##get CDAP_ENDPOINT
-        ##export CDAP_ENDPOINT=$(gcloud beta data-fusion instances describe --location="${_REGION}" --format="value(apiEndpoint)" ${_INSTANCE_ID})
-        ##curl -X POST -H "Authorization: Bearer ${_AUTH_TOKEN}" -H "Content-Type: application/json" -d @pipeline.json "${_CDAP_ENDPOINT}/v3/namespaces/default/apps/DataFusionQuickstartV1/update"
         curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" -d @pipeline.json "$(gcloud beta data-fusion instances describe --location="${_REGION}" --format="value(apiEndpoint)" ${_INSTANCE_ID})/v3/namespaces/default/apps/DataFusionQuickstartV1/update"
-options:
-  logging: CLOUD_LOGGING_ONLY
+##options:
+##  logging: CLOUD_LOGGING_ONLY
 substitutions:
   _REGION: 'us-west1'
   _INSTANCE_ID: 'testDataFusionPipeline'
-  ##_AUTH_TOKEN: $(gcloud auth print-access-token)
-  ##_CDAP_ENDPOINT: $(gcloud beta data-fusion instances describe --location=${_REGION} --format="value(apiEndpoint)" ${_INSTANCE_ID})
